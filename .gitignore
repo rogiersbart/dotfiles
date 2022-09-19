@@ -1,5 +1,10 @@
 .Rproj.user
 .Rhistory
 .Rdata
+.Ruserdata
 .DS_Store
 .httr-oauth
+# quarto website
+/.quarto/
+# quarto index.qmd doc with caching
+/index_cache/

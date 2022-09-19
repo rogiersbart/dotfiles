@@ -1,4 +1,4 @@
-# options ----
+# Options ----
 
 options(
   # {usethis}
@@ -15,15 +15,12 @@ options(
     Version = "0.0.0.9000"
   ),
 
-  # {blogdown}
-  blogdown.hugo.version = "0.101.0",
-
   # base R
   max.print = 1000,
   warnPartialMatchDollar = TRUE
 )
 
-# repos ----
+# Repos ----
 
 local({
  r <- getOption("repos")
@@ -31,10 +28,11 @@ local({
  options(repos=r)
 })
 
-# terminal ----
+# Terminal ----
 
 utils::setWindowTitle(title = R.version$version.string)
 
-# environment variables ----
+# Environment variables ----
 
-Sys.setenv("_R_CHECK_LENGTH_1_CONDITION_" = "true")
+Sys.setenv("_R_CHECK_LENGTH_1_CONDITION_" = "true") # error on if (vector)
+Sys.setenv(HOMEDRIVE = Sys.getenv("HOME")) # avoid issues with U:/ on windows
