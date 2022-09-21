@@ -9,12 +9,17 @@ alias python="~/AppData/Local/r-miniconda/python.exe"
 PS1="\[\033]0;Mintty terminal emulator (Git for Windows)\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\s@v\v \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
 
 # Functions ----
-bro::start () {
+bro::begin () {
 # subst U: $HOME
-# subst D: C:/Virtual-D
-$HOME/bin/caffeine -useshift &
-$HOME/bin/meter &
-start "$HOME/bin/hotkeys.ahk"
+subst D: C:/Virtual-D
+$HOME/bin/caffeine64 -useshift &
+$HOME/bin/AutoHotkeyU64 $HOME/.ahk &
+"$HOME/bin/Compact Tray Meter" &
+}
+bro::end () {
+kill $(ps aux | grep 'caffeine64' | awk '{print $1}')
+kill $(ps aux | grep 'AutoHotkeyU64' | awk '{print $1}')
+kill $(ps aux | grep 'Compact Tray Meter' | awk '{print $1}')
 }
 bro::light () {
 echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
