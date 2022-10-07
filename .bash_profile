@@ -9,19 +9,23 @@ alias python="~/AppData/Local/r-miniconda/python.exe"
 PS1="\[\033]0;Mintty terminal emulator (Git for Windows)\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\s@v\v \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
 
 # Functions ----
-bro::begin () {
+function bro::init {
 # subst U: $HOME
-subst D: C:/Virtual-D
-$HOME/bin/caffeine64 -useshift &
-$HOME/bin/AutoHotkeyU64 $HOME/.ahk &
-"$HOME/bin/Compact Tray Meter" &
+subst D: C:/Virtual-D > /dev/null
+($HOME/bin/caffeine64 -useshift &) > /dev/null
+($HOME/bin/AutoHotkeyU64 $HOME/.ahk &) > /dev/null
+if [ "$1" = "-m" ]; then
+  ("$HOME/bin/Compact Tray Meter" &) > /dev/null
+fi
 }
-bro::end () {
+function bro::abort {
 kill $(ps aux | grep 'caffeine64' | awk '{print $1}')
 kill $(ps aux | grep 'AutoHotkeyU64' | awk '{print $1}')
-kill $(ps aux | grep 'Compact Tray Meter' | awk '{print $1}')
+if ps aux | grep -q 'Compact Tray Meter'; then
+  kill $(ps aux | grep 'Compact Tray Meter' | awk '{print $1}')
+fi
 }
-bro::light () {
+function bro::light {
 echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
 echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
 echo -ne  '\eP\e]4;7;#EEE8D5\a'  # white        -> Base2
@@ -33,7 +37,7 @@ echo -ne  '\eP\e]4;0;#073642\a'  # black        -> Base02
 echo -ne  '\eP\e]4;8;#002B36\a'  # bold black   -> Base03
 echo -ne '\eP\e]4;15;#002B36\a'  # bold white   -> Base03 (originally base3 but that's invisible)
 }
-bro::dark () {
+function bro::dark {
 # 4 switches of hex codes light
 echo -ne '\eP\e]4;12;#657B83\a'  # bold blue    -> base0 *
 echo -ne '\eP\e]4;14;#586E75\a'  # bold cyan    -> base1 *
