@@ -1,8 +1,8 @@
 [user]
 	name = rogiersbart
 	email = rogiers.bart@gmail.com
-[credential]
-	helper = cache
 [core]
 	editor = "nano"
 	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = main
