@@ -1,5 +1,5 @@
 # Environment variables ----
-export PATH="$PATH:~/AppData/Local/Programs/R/R-4.2.1/bin/x64"
+export PATH="$PATH:~/AppData/Local/Programs/R/R-4.2.2/bin/x64"
 
 # Aliases ----
 alias bro::r="R --no-save --no-restore -q"

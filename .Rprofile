@@ -17,15 +17,18 @@ options(
 
   # base R
   max.print = 1000,
-  warnPartialMatchDollar = TRUE
+  warnPartialMatchDollar = TRUE,
+
+  # {cli}
+  cli.palette = if (Sys.getenv("RSTUDIO") == 1) "iterm-solarized" else NULL
 )
 
 # Repos ----
 
 local({
- r <- getOption("repos")
- r["CRAN"] <- "https://cloud.r-project.org"
- options(repos=r)
+  r <- getOption("repos")
+  r["CRAN"] <- "https://cloud.r-project.org"
+  options(repos=r)
 })
 
 # Terminal ----
