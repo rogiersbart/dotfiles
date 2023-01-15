@@ -8,23 +8,11 @@ alias python="~/AppData/Local/r-miniconda/python.exe"
 # Terminal ----
 PS1="\[\033]0;Mintty terminal emulator (Git for Windows)\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\s@v\v \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
 
+# Virtual D ----
+
+[ ! -d "/d/" ] && subst D: C:/Virtual-D > /dev/null
+
 # Functions ----
-function bro::init {
-# subst U: $HOME
-subst D: C:/Virtual-D > /dev/null
-($HOME/bin/caffeine64 -useshift &) > /dev/null
-($HOME/bin/AutoHotkeyU64 $HOME/.ahk &) > /dev/null
-if [ "$1" = "-m" ]; then
-  ("$HOME/bin/Compact Tray Meter" &) > /dev/null
-fi
-}
-function bro::abort {
-kill $(ps aux | grep 'caffeine64' | awk '{print $1}')
-kill $(ps aux | grep 'AutoHotkeyU64' | awk '{print $1}')
-if ps aux | grep -q 'Compact Tray Meter'; then
-  kill $(ps aux | grep 'Compact Tray Meter' | awk '{print $1}')
-fi
-}
 function bro::light {
 echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
 echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
@@ -50,18 +38,21 @@ echo -ne  '\eP\e]4;0;#EEE8D5\a'  # black        -> Base02
 echo -ne  '\eP\e]4;8;#FDF6E3\a'  # bold black   -> Base03
 echo -ne '\eP\e]4;15;#FDF6E3\a'  # bold white   -> Base03 (originally base3 but that's invisible)
 }
+function bro::solarized {
+  bro::light
+  echo -ne   '\eP\e]12;#DC322F\a'  # Cursor       -> red
+  echo -ne  '\eP\e]4;1;#DC322F\a'  # red          -> red
+  echo -ne  '\eP\e]4;9;#CB4B16\a'  # bold red     -> orange
+  echo -ne  '\eP\e]4;2;#859900\a'  # green        -> green
+  echo -ne  '\eP\e]4;3;#B58900\a'  # yellow       -> yellow
+  echo -ne  '\eP\e]4;4;#268BD2\a'  # blue         -> blue
+  echo -ne  '\eP\e]4;5;#D33682\a'  # magenta      -> magenta
+  echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
+  echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
+}
 
 # Theme ----
 # solarized colours - adjusted from:
 # https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.light
 # https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.dark
-bro::light
-echo -ne   '\eP\e]12;#DC322F\a'  # Cursor       -> red
-echo -ne  '\eP\e]4;1;#DC322F\a'  # red          -> red
-echo -ne  '\eP\e]4;9;#CB4B16\a'  # bold red     -> orange
-echo -ne  '\eP\e]4;2;#859900\a'  # green        -> green
-echo -ne  '\eP\e]4;3;#B58900\a'  # yellow       -> yellow
-echo -ne  '\eP\e]4;4;#268BD2\a'  # blue         -> blue
-echo -ne  '\eP\e]4;5;#D33682\a'  # magenta      -> magenta
-echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
-echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
+bro::solarized
