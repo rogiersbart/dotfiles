@@ -1,18 +1,23 @@
-# Environment variables ----
-export PATH="$PATH:~/AppData/Local/Programs/R/R-4.2.2/bin/x64"
-
 # Aliases ----
+
 alias bro::r="R --no-save --no-restore -q"
-alias python="~/AppData/Local/r-miniconda/python.exe"
+alias bro::python="winpty python.exe"
+alias bro::env="(rundll32 sysdm.cpl,EditEnvironmentVariables &)"
 
 # Terminal ----
+
 PS1="\[\033]0;Mintty terminal emulator (Git for Windows)\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\s@v\v \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
 
 # Virtual D ----
 
 [ ! -d "/d/" ] && subst D: C:/Virtual-D > /dev/null
 
-# Functions ----
+# Theme ----
+
+# solarized colours - adjusted from:
+# https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.light
+# https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.dark
+
 function bro::light {
 echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
 echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
@@ -50,9 +55,4 @@ function bro::solarized {
   echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
   echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
 }
-
-# Theme ----
-# solarized colours - adjusted from:
-# https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.light
-# https://github.com/mavnn/mintty-colors-solarized/blob/master/sol.dark
 bro::solarized
