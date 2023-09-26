@@ -20,20 +20,21 @@ options(
   warnPartialMatchDollar = TRUE,
 
   # {cli}
-  cli.palette = if (Sys.getenv("RSTUDIO") == 1) "iterm-solarized" else NULL
+  cli.palette = if (Sys.getenv("RSTUDIO") == 1) "iterm-solarized" else NULL,
+
+  # repos
+  repos = c(
+    windows = "https://packagemanager.posit.co/cran/latest",
+    # debian = "https://packagemanager.posit.co/cran/__linux__/bookworm/latest",
+    CRAN = "https://cloud.r-project.org",
+    # rogiersbart = "https://rogiersbart.r-universe.dev",
+    NULL # add local repo here
+  )
 )
-
-# Repos ----
-
-local({
-  r <- getOption("repos")
-  r["CRAN"] <- "https://cloud.r-project.org"
-  options(repos = r)
-})
 
 # Terminal ----
 
-utils::setWindowTitle(title = R.version$version.string)
+utils::setWindowTitle(title = paste0("R ", getRversion(), " - ", Sys.getenv("HOSTNAME")))
 
 # Environment variables ----
 

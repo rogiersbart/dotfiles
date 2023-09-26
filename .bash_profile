@@ -1,16 +1,11 @@
 # Aliases ----
 
 alias bro::r="R --no-save --no-restore -q"
-alias bro::python="winpty python.exe"
 alias bro::env="(rundll32 sysdm.cpl,EditEnvironmentVariables &)"
 
 # Terminal ----
 
-PS1="\[\033]0;Mintty terminal emulator (Git for Windows)\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\s@v\v \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
-
-# Virtual D ----
-
-[ ! -d "/d/" ] && subst D: C:/Virtual-D > /dev/null
+PS1="\[\033]0;$HOSTNAME\007\]\n\[\033[32m\]\u\[\033[33m\]@\[\033[36m\]\[\033[35m\]\h \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$"
 
 # Theme ----
 
