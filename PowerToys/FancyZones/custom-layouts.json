@@ -5,14 +5,14 @@
       "name": "bro::layout",
       "type": "canvas",
       "info": {
-        "ref-width": 1920,
-        "ref-height": 1050,
+        "ref-width": 1840,
+        "ref-height": 1080,
         "zones": [
           {
             "X": 20,
             "Y": 20,
-            "width": 1880,
-            "height": 1010
+            "width": 1800,
+            "height": 1040
           },
           {
             "X": 60,
@@ -33,10 +33,10 @@
             "height": 400
           },
           {
-            "X": 1180,
+            "X": 1100,
             "Y": 60,
             "width": 680,
-            "height": 930
+            "height": 960
           }
         ],
         "sensitivity-radius": 20
