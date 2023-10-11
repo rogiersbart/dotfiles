@@ -24,17 +24,22 @@ options(
 
   # repos
   repos = c(
-    windows = "https://packagemanager.posit.co/cran/latest",
-    # debian = "https://packagemanager.posit.co/cran/__linux__/bookworm/latest",
-    CRAN = "https://cloud.r-project.org",
+    posit = switch(
+      Sys.info()["sysname"],
+      Windows = "https://packagemanager.posit.co/cran/latest",
+      Linux = "https://packagemanager.posit.co/cran/__linux__/bookworm/latest"
+    ),
+    cran = "https://cloud.r-project.org",
     # rogiersbart = "https://rogiersbart.r-universe.dev",
     NULL # add local repo here
-  )
+  ),
+  BioC_mirror = "https://packagemanager.posit.co/bioconductor",
+  BIOCONDUCTOR_CONFIG_FILE = "https://packagemanager.posit.co/bioconductor/config.yaml"
 )
 
 # Terminal ----
 
-utils::setWindowTitle(title = paste0("R ", getRversion(), " - ", Sys.getenv("HOSTNAME")))
+if (Sys.info()[["sysname"]] == "Windows") utils::setWindowTitle(title = Sys.info()[["nodename"]])
 
 # Environment variables ----
 
