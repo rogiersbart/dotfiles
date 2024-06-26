@@ -13,6 +13,9 @@ alias .mem="grep Mem /proc/meminfo | sed 's/Mem/ /'"
 alias .cpu="grep name /proc/cpuinfo | cut -d: -f2"
 alias .ncpu="nproc"
 alias .disk="df -h"
+.py () {
+  "$RETICULATE_PYTHON"
+}
 
 # Terminal ----
 

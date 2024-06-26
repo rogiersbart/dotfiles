@@ -29,8 +29,8 @@ options(
       Windows = "https://packagemanager.posit.co/cran/latest",
       Linux = "https://packagemanager.posit.co/cran/__linux__/bookworm/latest"
     ),
+    rogiersbart = "https://rogiersbart.r-universe.dev",
     cran = "https://cloud.r-project.org",
-    # rogiersbart = "https://rogiersbart.r-universe.dev",
     NULL # add local repo here
   ),
   BioC_mirror = "https://packagemanager.posit.co/bioconductor",
