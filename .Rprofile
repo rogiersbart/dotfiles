@@ -30,6 +30,9 @@ options(
       Linux = "https://packagemanager.posit.co/cran/__linux__/bookworm/latest"
     ),
     rogiersbart = "https://rogiersbart.r-universe.dev",
+    ropensci = "https://ropensci.r-universe.dev",
+    stan = "https://stan-dev.r-universe.dev",
+    gadenbuie = "https://gadenbuie.r-universe.dev",
     cran = "https://cloud.r-project.org",
     NULL # add local repo here
   ),
