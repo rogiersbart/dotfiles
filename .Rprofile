@@ -33,16 +33,18 @@ options(
     ropensci = "https://ropensci.r-universe.dev",
     stan = "https://stan-dev.r-universe.dev",
     gadenbuie = "https://gadenbuie.r-universe.dev",
-    cran = "https://cloud.r-project.org",
-    NULL # add local repo here
+    cran = "https://cloud.r-project.org"
   ),
+  box.path = "~/areas/modules",
   BioC_mirror = "https://packagemanager.posit.co/bioconductor",
   BIOCONDUCTOR_CONFIG_FILE = "https://packagemanager.posit.co/bioconductor/config.yaml"
 )
 
 # Terminal ----
 
-if (Sys.info()[["sysname"]] == "Windows") utils::setWindowTitle(title = Sys.info()[["nodename"]])
+if (Sys.info()[["sysname"]] == "Windows") {
+  utils::setWindowTitle(title = Sys.info()[["nodename"]])
+}
 
 # Environment variables ----
 

@@ -6,3 +6,5 @@
 	excludesFile = ~/.gitignore
 [init]
 	defaultBranch = main
+[credential "https://devops.sckcen.be"]
+	provider = generic
