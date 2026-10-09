@@ -7,6 +7,8 @@ fi
 
 # Aliases ----
 
+alias ssh="/c/Windows/System32/OpenSSH/ssh.exe"
+alias scp="/c/Windows/System32/OpenSSH/scp.exe"
 alias .r="R --no-save --no-restore -q"
 alias .env="(rundll32 sysdm.cpl,EditEnvironmentVariables &)"
 alias .mem="grep Mem /proc/meminfo | sed 's/Mem/ /'"

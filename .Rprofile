@@ -30,6 +30,7 @@ options(
     ropensci = "https://ropensci.r-universe.dev",
     stan = "https://stan-dev.r-universe.dev",
     tylermorganwall = "https://tylermorganwall.r-universe.dev",
+    coolbutuseless = "https://coolbutuseless.r-universe.dev",
     cran = "https://cloud.r-project.org"
   ),
   box.path = "~/areas/modules",

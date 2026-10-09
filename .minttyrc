@@ -1,8 +1,10 @@
 ThemeFile=gruvbox
 Transparency=off
 CursorType=block
-Font=Fira Code
+Font=Cascadia Code
 FontHeight=10
 BellFlash=no
 BellPopup=no
 Scrollbar=none
+FontWeight=400
+DimAsFont=yes
